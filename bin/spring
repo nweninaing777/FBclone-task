@@ -1,5 +1,4 @@
 
-
 unless defined?(Spring)
   require 'rubygems'
   require 'bundler'
