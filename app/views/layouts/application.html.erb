@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Facebook Clone</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+ <meta name="viewport" content="width=device-width">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="row header-row">
+            <div class="col-md-8 col-md-offset-2">
+              <a class="navbar-brand" id="nav-content">FaceBookClone</a>
+              <% if logged_in? %>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navi">
+                  <span class="sr-only">FaceBookClone</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <div id="gnavi" class="collapse navbar-collapse" >
+                  <ul class="nav navbar-nav">
+                    <li><%= link_to "profile", user_path(current_user.id) ,id:"nav-content"%></li>
+                    <li><%= link_to "login account", session_path(current_user.id), method: :delete ,id:"nav-content"%></li>
+                    <li><%= link_to 'Post List', feeds_path ,id:"nav-content"%></li>
+                    <li><%= link_to 'New Post and Image', new_feed_path ,id:"nav-content"%></li>
+                  </ul>
+                </div>
+              <% else %>
+                <div id="gnavi">
+                  <ul class="nav navbar-nav">
+                    <li><%= link_to "User register", new_user_path ,id:"nav-content"%></li>
+                    <li><%= link_to "Login", new_session_path ,id:"nav-content"%></li>
+                  </ul>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <% flash.each do |key, value| %>
+        <div class="container-fluid">
+          <div class="row" id="notice-row">
+            <div class="col-md-8 col-md-offset-2">
+                <%= content_tag(:div, value, id: "#{key}") %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <%= yield %>
+      <footer>
+        <p>運営会社  FacebookClone Company</p>
+        <p>© 2020-2021 Copyright FacebookClone Company.</p>
+      </footer>
+    </main>
+  </body>
+</html>

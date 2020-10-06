@@ -1,0 +1,19 @@
+<div class="main-container">
+  <h2>send the confirm screen</h2>
+  <div class="index_container">
+    <%= form_with(model: @feed, url: feeds_path, local: true) do |form| %>
+      <p>content：</p>
+      <p><%= @feed.content %></p>
+      <p>photo：</p>
+      <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
+      <%= form.hidden_field :image_cache %>
+      <%= form.hidden_field :user_id %>
+      <%= form.hidden_field :content %>
+      <p><%= form.submit "create Image" %></p>
+    <% end %>
+    <%= form_with(model: @feed, url: new_feed_path, local: true ,method: "get") do |form| %>
+      <%= form.hidden_field :image_cache %>
+   <%= form.submit "back", name: "back" %>
+    <% end %>
+  </div>
+</div

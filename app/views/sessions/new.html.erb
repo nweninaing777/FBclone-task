@@ -1,0 +1,23 @@
+<div class="main-container">
+  <div class="login-container">
+      <h3>Login</h3>
+      <div class="login-form">
+      <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+        <div class="login-form-content" >
+          <%= f.label :email, "mail address" %>
+          <%= f.email_field :email %>
+        </div>
+        <br><br>
+        <div class="login-form-content" >
+          <%= f.label :password, "password" %>
+          <%= f.password_field :password %>
+        </div>
+        <br><br>
+        <div class="login-form-content" >
+          <%= f.submit "FaceBookClone login" %>
+        </div>
+      <% end %>
+      </div>
+  </div>
+
+</div>

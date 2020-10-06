@@ -1,0 +1,25 @@
+<div class="main-container">
+  <div class="index_container">
+    <ul>
+      <li><h1>Post List</h1></li>
+    </ul>
+    <% @feeds.each do |feed| %>
+      <div class="feed">
+        <div class="feed-top">
+          <%= feed.user.name %>
+          <div class="btn-group dropdown">
+          
+          <div class="dropdown-menu">
+              <p class="dropdown-item"><%= link_to 'confirm screen', feed, class:"dropdown-item"%></p>
+              <p class="dropdown-item"><%= link_to 'edit post', edit_feed_path(feed), class:"dropdown-item" %></p>
+              <p class="dropdown-item"><%= link_to 'delete post', feed, method: :delete, data: { confirm: 'Are you sure?' }, class:"dropdown-item" %></p>
+            </div>
+          </div>
+        </div>
+        <p id="content"><%= feed.content %></p>
+        <p id="image"><%= image_tag feed.image.url %></p>
+
+      </div>
+    <% end %>
+  </div>
+</div>
