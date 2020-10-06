@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
+gem 'carrierwave'
+gem 'mini_magick'
+gem'bcrypt', '3.1.16'
 
 gem 'rails', '~> 6.0.3'
 gem 'pg', '>= 0.18', '< 2.0'
@@ -31,6 +34,3 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'carrierwave'
-gem 'mini_magick'
-gem'bcrypt', '3.1.16'
