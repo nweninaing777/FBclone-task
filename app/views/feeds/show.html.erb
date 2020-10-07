@@ -1,13 +1,9 @@
 <div class="main-container">
-  <div class="index_container">
-
-      <p><strong>User:<%= @feed.user.name %></strong></p>
+    <p><strong>User:<%= @feed.user.name %></strong></p>
       <p><strong>Contents：<%= @feed.content %></strong></p>
       <p><strong>Image:</strong></p>
         <%= image_tag @feed.image.url %>
-
-
-    <button type="button" class="btn btn-primary btn-sm"><%= link_to 'Edit', edit_feed_path(@feed) %> </button>
+  <button type="button" class="btn btn-primary btn-sm"><%= link_to 'Edit', edit_feed_path(@feed) %> </button>
   <button type="button" class="btn btn-primary btn-sm">  <%= link_to 'Back', feeds_path %></button>
   </div>
 </div>
