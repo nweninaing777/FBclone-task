@@ -1,5 +1,7 @@
 <div class="main-container">
-  <h3>New Post </h3>
-  <%= render 'form', feed: @feed %>
- <button type="button" class="btn btn-primary btn-sm"><%= link_to 'Back', feeds_path %></button>
+  <h3>New post</h3>
+
+  <%= render 'form', feed: @feed %><%# 変数@feedを feedという変数に移して、render先のページに持っていくことができる %>
+
+  <%= link_to 'Back', feeds_path %>
 </div>
